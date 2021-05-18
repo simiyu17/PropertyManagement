@@ -1,0 +1,14 @@
+
+server.servlet.context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:propertydb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+
+property.api.key: TY748HDJFNVHF7YED
