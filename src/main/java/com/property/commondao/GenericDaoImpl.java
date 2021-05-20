@@ -61,8 +61,8 @@ public class GenericDaoImpl<T, ID extends Serializable> implements GenericDao<T,
     /**
      * @see GenericDao#save(Object) #save(java.lang.Object)
      */
-    public void saveBean(T entity) throws Exception {
-        em.merge(entity);
+    public T saveBean(T entity) throws Exception {
+        return em.merge(entity);
     }
 
     /**

@@ -44,7 +44,7 @@ public class InvestmentPropertyController {
     private InvestmentPropertyDaoImpl propertyDao;
 
     // -------------------Retrieve All Investment Properties ------------------------------------------
-    @ApiOperation(value = "View a list of available Properties", response = Iterable.class)
+   @ApiOperation(value = "View a list of available Properties", response = Iterable.class)
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Successfully retrieved list"),
         @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -52,10 +52,11 @@ public class InvestmentPropertyController {
     }
     )
     @GetMapping("/")
-    public List<InvestmentProperty> listAll(@RequestParam(name = "code", required = false) String code,
+    public ResponseEntity<List<InvestmentProperty>> listAll(@RequestParam(name = "code", required = false) String code,
             @RequestParam(name = "pName", required = false) String pName, @RequestParam(name = "approved", required = false) Boolean approved,
             @RequestParam(name = "constructionFromDate", required = false) LocalDate constructionFromDate, @RequestParam(name = "constructionToDate", required = false) LocalDate constructionToDate) {
-        return propertyDao.getInvestmentProperties(code, pName, approved, constructionToDate, constructionToDate);
+         return new ResponseEntity<List<InvestmentProperty>>(propertyDao.getInvestmentProperties(code, pName, approved, constructionToDate, constructionToDate), HttpStatus.OK);
+   
     }
 
     // -------------------Retrieve Single InvestmentProperty------------------------------------------

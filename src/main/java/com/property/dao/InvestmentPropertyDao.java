@@ -15,11 +15,13 @@ import java.util.List;
  */
 public interface InvestmentPropertyDao {
     
-    void save(InvestmentProperty property)throws Exception;
+    InvestmentProperty save(InvestmentProperty property)throws Exception;
     
     InvestmentProperty findById(String id);
     
     List<InvestmentProperty> getInvestmentProperties(String codeString, String nameString, Boolean approved, LocalDate contructDateFrom, LocalDate contructDateTo);
+    
+    List<InvestmentProperty> getAllInvestmentProperties();
     
     void delete(String id)throws Exception;
     

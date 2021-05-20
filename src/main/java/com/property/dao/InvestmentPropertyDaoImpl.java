@@ -28,8 +28,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class InvestmentPropertyDaoImpl extends GenericDaoImpl<InvestmentProperty, String> implements InvestmentPropertyDao {
 
     @Override
-    public void save(InvestmentProperty property) throws Exception {
-        saveBean(property);
+    public InvestmentProperty save(InvestmentProperty property) throws Exception {
+        return saveBean(property);
     }
 
     @Override
@@ -67,6 +67,11 @@ public class InvestmentPropertyDaoImpl extends GenericDaoImpl<InvestmentProperty
     @Override
     public void delete(String id) throws Exception {
         deleteBeanById(id);
+    }
+
+    @Override
+    public List<InvestmentProperty> getAllInvestmentProperties() {
+        return findAll(-1, -1);
     }
     
 }

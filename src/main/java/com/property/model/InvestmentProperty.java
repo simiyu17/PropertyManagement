@@ -67,6 +67,19 @@ public class InvestmentProperty extends BaseEntity {
     @ApiModelProperty(notes = "Whether property is leased or not")
     @Column(name = "leased")
     private Boolean leased;
+    
+     public InvestmentProperty() {
+    }
+
+    public InvestmentProperty(String code, String name, BigDecimal area, BigDecimal unitCost, String location, Boolean approved, Boolean leased) {
+        this.code = code;
+        this.name = name;
+        this.area = area;
+        this.unitCost = unitCost;
+        this.location = location;
+        this.approved = approved;
+        this.leased = leased;
+    }
 
     /**
      * @return the code

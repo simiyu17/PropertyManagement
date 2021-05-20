@@ -71,7 +71,7 @@ public interface GenericDao<T, ID extends Serializable> {
      *
      * @return the saved entity
      */
-    void saveBean(final T entity) throws Exception;
+    T saveBean(final T entity) throws Exception;
 
     /**
      * delete an entity from the database.
